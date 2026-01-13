@@ -2,97 +2,227 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>S.O.S. Play – Lista VIP</title>
+<title>S.O.S. Play — Tudo em um só lugar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
 margin:0;
-font-family: Arial, sans-serif;
-background:#050505;
+font-family:Segoe UI,Arial,sans-serif;
+background:#03030a;
 color:#fff;
 }
-header{
-background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
-padding:50px 20px;
+
+.logo{
 text-align:center;
+font-size:48px;
+font-weight:900;
+color:#ffd65a;
+padding:30px 10px;
+text-shadow:0 0 25px rgba(255,214,90,.7);
 }
-header h1{
-font-size:2.8em;
-margin-bottom:10px;
+
+.menu{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
 }
-header p{
-font-size:1.2em;
-color:#ccc;
-}
-.section{
-padding:40px 20px;
-max-width:1000px;
-margin:auto;
-}
-.btn{
-display:inline-block;
-padding:15px 30px;
-background:#e50914;
-color:white;
-text-decoration:none;
-font-size:18px;
-border-radius:30px;
-margin-top:20px;
-}
-iframe{
-width:100%;
-min-height:600px;
+
+.menu button{
+background:#0a1333;
 border:none;
+color:#fff;
+padding:10px 18px;
+border-radius:25px;
+cursor:pointer;
+transition:.3s;
 }
+
+.menu button.active,
+.menu button:hover{
+background:#ffd65a;
+color:#000;
+box-shadow:0 0 20px rgba(255,214,90,.7);
+}
+
+.carousel{
+max-width:1000px;
+height:420px;
+margin:20px auto;
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 0 40px rgba(0,150,255,.4);
+}
+
+.carousel-track{
+display:flex;
+width:600%;
+height:100%;
+transition:.8s ease-in-out;
+}
+
+.slide{
+width:100%;
+height:100%;
+background-image:url("A_collection_of_six_digital_images_designed_as_cat.png");
+background-size:600% 100%;
+background-repeat:no-repeat;
+}
+
+.filmes{background-position:0% 0}
+.series{background-position:20% 0}
+.infantil{background-position:40% 0}
+.esportes{background-position:60% 0}
+.aovivo{background-position:80% 0}
+.adulto{background-position:100% 0}
+
+.thumbs{
+display:flex;
+justify-content:center;
+gap:10px;
+margin:15px 0 40px;
+}
+
+.thumb{
+width:100px;
+height:60px;
+border-radius:10px;
+cursor:pointer;
+background-image:url("A_collection_of_six_digital_images_designed_as_cat.png");
+background-size:600% 100%;
+box-shadow:0 0 15px rgba(0,150,255,.5);
+transition:.3s;
+}
+
+.thumb:hover{
+transform:scale(1.1);
+}
+
+.thumb.filmes{background-position:0% 0}
+.thumb.series{background-position:20% 0}
+.thumb.infantil{background-position:40% 0}
+.thumb.esportes{background-position:60% 0}
+.thumb.aovivo{background-position:80% 0}
+.thumb.adulto{background-position:100% 0}
+
+.plans{
+max-width:1000px;
+margin:80px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+padding:0 20px;
+}
+
+.plan{
+background:#0b1225;
+border-radius:30px;
+padding:40px;
+text-align:center;
+box-shadow:0 0 40px rgba(0,150,255,.4);
+}
+
+.price{
+font-size:42px;
+color:#ffd65a;
+margin:20px 0;
+font-weight:900;
+}
+
+.btn{
+padding:14px 36px;
+border:none;
+border-radius:40px;
+background:linear-gradient(135deg,#ffd65a,#ffb700);
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
 footer{
 text-align:center;
-padding:25px;
+padding:40px;
 background:#000;
 color:#777;
-font-size:14px;
-}
-ul{
-line-height:1.8;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-<h1>S.O.S. Play</h1>
-<p>Entre agora para a Lista VIP e receba prioridade no acesso quando o WhatsApp oficial estiver ativo!</p>
-</header>
+<div class="logo">S.O.S. Play</div>
 
-<div class="section">
-<h2>Cadastre-se na Lista VIP</h2>
-<p>Deixe seu nome e WhatsApp abaixo para garantir sua vaga e condições especiais.</p>
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd90FwD5yYRm3_TYnIWE1IfdBNp29oU6mMarl0TIFaMYuM_zw/viewform?embedded=true"></iframe>
-
+<div class="menu">
+<button class="active" onclick="goTo(0,this)">🎬 Filmes</button>
+<button onclick="goTo(1,this)">📺 Séries</button>
+<button onclick="goTo(2,this)">👧 Infantil</button>
+<button onclick="goTo(3,this)">⚽ Esportes</button>
+<button onclick="goTo(4,this)">📡 Ao Vivo</button>
+<button onclick="goTo(5,this)">🔞 Adulto</button>
 </div>
 
-<div class="section">
-<h2>O que você vai receber?</h2>
-<ul>
-<li>✅ Prioridade no acesso</li>
-<li>✅ Receber novidades em primeira mão</li>
-<li>✅ Condições especiais de lançamento</li>
-<li>✅ Acesso antes de todos</li>
-</ul>
+<div class="carousel">
+  <div class="carousel-track" id="track">
+    <div class="slide filmes"></div>
+    <div class="slide series"></div>
+    <div class="slide infantil"></div>
+    <div class="slide esportes"></div>
+    <div class="slide aovivo"></div>
+    <div class="slide adulto"></div>
+  </div>
 </div>
 
-<div class="section">
-<h2>Como funciona</h2>
-<p>Assim que o WhatsApp oficial estiver pronto, você será notificado automaticamente para confirmar seu acesso.</p>
+<div class="thumbs">
+  <div class="thumb filmes" onclick="goTo(0,this)"></div>
+  <div class="thumb series" onclick="goTo(1,this)"></div>
+  <div class="thumb infantil" onclick="goTo(2,this)"></div>
+  <div class="thumb esportes" onclick="goTo(3,this)"></div>
+  <div class="thumb aovivo" onclick="goTo(4,this)"></div>
+  <div class="thumb adulto" onclick="goTo(5,this)"></div>
+</div>
+
+<div class="plans">
+  <div class="plan">
+    <h2>Plano Mensal</h2>
+    <div class="price">R$ 30,00</div>
+    <p>Acesso completo ao S.O.S. Play</p>
+    <button class="btn" onclick="go()">Assinar</button>
+  </div>
+
+  <div class="plan">
+    <h2>Plano 2 Meses</h2>
+    <div class="price">R$ 54,99</div>
+    <p>Mais economia no seu acesso</p>
+    <button class="btn" onclick="go()">Assinar</button>
+  </div>
 </div>
 
 <footer>
-<p>S.O.S. Play – Tudo em um só lugar</p>
+<p>S.O.S. Play — Tudo em um só lugar</p>
 <p>© 2026</p>
 </footer>
+
+<script>
+const numero="5599999999999";
+const msg="Olá, quero conhecer a SOS Play e ter acesso rápido e prático a todos os conteúdos";
+
+function go(){
+window.open("https://wa.me/"+numero+"?text="+encodeURIComponent(msg));
+}
+
+function goTo(index,btn){
+document.getElementById("track").style.transform =
+"translateX(-"+(index*100)+"%)";
+
+document.querySelectorAll(".menu button")
+.forEach(b=>b.classList.remove("active"));
+
+if(btn.tagName==="BUTTON"){
+btn.classList.add("active");
+}
+}
+</script>
 
 </body>
 </html>
